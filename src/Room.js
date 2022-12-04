@@ -18,6 +18,8 @@ function Room({ socket, room }) {
         message: currentMessage,
       };
 
+      console.log(messageData);
+
       await socket.emit("send_message", messageData);
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
@@ -41,13 +43,8 @@ function Room({ socket, room }) {
           {messageList.map((messageContent) => {
             return (
 
-              
-                
                   <div className='message'>{messageContent.message}</div>
-                
-
-              
-
+             
             );
           })}
         </ScrollToBottom>
@@ -55,7 +52,7 @@ function Room({ socket, room }) {
       </div>
 
       <div className="chat-footer">
-        <input id='msg-input' placeholder='Type something' onChange={(event) => { setCurrentMessage(event.target.value) }} onK />
+        <input id='msg-input' placeholder='Type something' onChange={(event) => { setCurrentMessage(event.target.value) }}/>
 
         <button onClick={sendMessage} className='send-btn'>
           Send
