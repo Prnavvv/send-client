@@ -8,8 +8,8 @@ const socket = io.connect("https://send-server.up.railway.app")
 function App() {
 
   //show-hide toggles start
-  const[showOptions, setShowOptions] = React.useState(false);//true
-  const[showCreate, setShowCreate] = React.useState(true);//false
+  const[showOptions, setShowOptions] = React.useState(true);//true
+  const[showCreate, setShowCreate] = React.useState(false);//false
   const[showJoin, setShowJoin] = React.useState(false);
   const[roomJoined, setRoomJoined] = React.useState(false);
   //show-hide toggles end
