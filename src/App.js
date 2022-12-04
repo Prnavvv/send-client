@@ -8,8 +8,8 @@ const socket = io.connect("https://send-server.up.railway.app")
 function App() {
 
   //show-hide toggles start
-  const[showOptions, setShowOptions] = React.useState(true);//true
-  const[showCreate, setShowCreate] = React.useState(false);//false
+  const[showOptions, setShowOptions] = React.useState(false);//true
+  const[showCreate, setShowCreate] = React.useState(true);//false
   const[showJoin, setShowJoin] = React.useState(false);
   const[roomJoined, setRoomJoined] = React.useState(false);
   //show-hide toggles end
@@ -45,14 +45,16 @@ function App() {
 
   return (
     <div>
-      <h1 className='heading'>SEND</h1>
+      <div className="header">
+      <h1 className='heading'>SENDD</h1>
+      </div>
       <div className='body'>
 
 {
   showOptions?
       <div className="options">
-        <button className='options-btn' onClick={createRoom}>Create Room</button>
-        <button className='options-btn' onClick={enterJoinRoom}>Join Room</button>
+        <button className='options-btn' onClick={createRoom}>CREATE ROOM</button>
+        <button className='options-btn' onClick={enterJoinRoom}>JOIN ROOM</button>
       </div>
       :null
 }
@@ -64,9 +66,9 @@ function App() {
 {
   showJoin?
   <>
-  <label>Enter Room Code</label>
-  <input onChange={(event)=>{setRoom(event.target.value)}}/>
-  <button onClick={joinRoom}>Join Room</button>
+  <label className='code-input-label'>Enter Room Code</label>
+  <input className='code-input' onChange={(event)=>{setRoom(event.target.value)}}/>
+  <button className='options-btn' onClick={joinRoom}>Join Room</button>
   </>
   :null
 }

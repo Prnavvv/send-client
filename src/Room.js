@@ -5,60 +5,65 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 function Room({ socket, room }) {
 
 
-    const [currentMessage, setCurrentMessage] = React.useState("");
-    const [messageList, setMessageList] = React.useState([]);
+  const [currentMessage, setCurrentMessage] = React.useState("");
+  const [messageList, setMessageList] = React.useState([]);
 
-    const sendMessage = async () => {
-        if (currentMessage !== "") {
-          const messageData = {
-            room: room,
-            message: currentMessage,
-          };
-    
-          await socket.emit("send_message", messageData);
-          setMessageList((list) => [...list, messageData]);
-          setCurrentMessage("");
-        }
+  let inp_field = document.getElementById('msg-input');
+  
+
+  const sendMessage = async () => {
+    if (currentMessage !== "") {
+      const messageData = {
+        room: room,
+        message: currentMessage,
       };
 
-      React.useEffect(() => {
-        socket.on("receive_message", (data) => {
-          setMessageList((list) => [...list, data]);
-        });
-      }, [socket]);
+      await socket.emit("send_message", messageData);
+      setMessageList((list) => [...list, messageData]);
+      setCurrentMessage("");
+    }
+
+    inp_field.value = "";
+  };
+
+  React.useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessageList((list) => [...list, data]);
+    });
+  }, [socket]);
 
 
-    return (
-        <div>
-            <h1>Room id : {room}</h1>
-            <div className='chat-box'>
-            <ScrollToBottom className="message-container">
+  return (
+    <div className='msg-container'>
+      <h1 className='room-id'>Room id : {room}</h1>
+      <div className='chat-box'>
+        <ScrollToBottom className="message-container message-container">
           {messageList.map((messageContent) => {
             return (
+
               
-                <div>
-                  <div className="message-content">
-                    <p>{messageContent.message}</p>
-                  </div>
-                  
-                </div>
+                
+                  <div className='message'>{messageContent.message}</div>
+                
+
               
+
             );
           })}
         </ScrollToBottom>
 
-            </div>
+      </div>
 
-            <div className="chat-footer">
-                <input placeholder='Type something' onChange={(event)=>{setCurrentMessage(event.target.value)}} onK/>
+      <div className="chat-footer">
+        <input id='msg-input' placeholder='Type something' onChange={(event) => { setCurrentMessage(event.target.value) }} onK />
 
-                <button onClick={sendMessage} className='send-btn'>
-                &#9658;
-                </button>
-            </div>
+        <button onClick={sendMessage} className='send-btn'>
+          Send
+        </button>
+      </div>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Room

@@ -1,17 +1,27 @@
 *{
   margin: 0;
   padding: 0;
-  background-color: aliceblue;
+  background-color: #DDD0C8;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  
+  color: #323232;
+ 
 }
 
 .heading{
-  margin-left: 46vw;
+  font-size: 50px;
 }
 
 .body{
   height: 80vh;
   width: 100vw;
-  border: 2px solid black;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,24 +39,61 @@
 }
 
 .options-btn{
-  background-color: blanchedalmond;
-  color: black;
+  background-color: #323232;
+  color: white;
   height: 50px;
-  width: 140px;
+  width: 160px;
   font-size: larger;
   margin-bottom: 40px;
   cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.msg-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:300px;
+  width: 300px;
+  
+}
+
+.room-id{
+  color: #323232;
 }
 
 .message-container {
   height:300px;
   width: 300px;
-  border: 2px solid black;
+  border: 3px solid #323232;
+  border-radius: 5px;
 }
 
+.chat-box{
+  width: 300px;
+}
 .message-content{
   padding-left: 20px;
   padding-top: 20px;
+  width: 300px;
+}
+
+.message{
+  font-size: medium;
+  margin: 5px;
+  max-width: 80%;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding: 5px;
+  background-color: #323232;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: auto;
 }
 
 .chat-footer{
@@ -55,18 +102,38 @@
 }
 
 .chat-footer input{
+  color: #323232;
   height: 29px;
-  width:270px;
-  border: 0;
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
+  width:230px;
+  border-radius: 4px;
+  border: 3px solid #323232;
 }
 
 .send-btn{
   height: 40px;
   padding: 6px;
   margin-top: 10px;
-  border: 2px solid black;
+  border: none;
   cursor: pointer;
+font-size: 20px;
+}
 
+.code-input-label{
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+.code-input{
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  font-size: 40px;
+  border: none;
+  border-bottom:2px solid #323232;
+  margin-bottom: 40px;
+}
+
+.code-input:focus{
+  outline: none;
 }
