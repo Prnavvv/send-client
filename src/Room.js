@@ -30,6 +30,7 @@ function Room({ socket, room }) {
 
   React.useEffect(() => {
     socket.on("receive_message", (data) => {
+      console.log("received", data);
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);

@@ -17,15 +17,23 @@ function App() {
 
 
   //states start
-  const[room,setRoom] = React.useState(Math.floor(Math.random() * (9999 - 1000) ) + 1000);
+  const[room,setRoom] = React.useState(String(Math.floor(Math.random() * (9999 - 1000) ) + 1000));
   //states end
 
   //functions start
 
-  const createRoom = () =>{
-    socket.emit("create_room",room);
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+
+  const createRoom = async() => {
+    
+    socket.emit("join_room",room);
+
+   
+
+    
     setShowOptions(false);
     setShowCreate(true);
+    console.log(room,socket);
   }
 
   const enterJoinRoom = () => {
@@ -37,6 +45,7 @@ function App() {
     socket.emit("join_room",room);
     setShowJoin(false);
     setRoomJoined(true);
+    console.log(room,socket);
   }
 
   //functions end
@@ -60,7 +69,9 @@ function App() {
       :null
 }
 {
+  
   showCreate?
+  
   <Room socket={socket} room={room}/>
   :null
 }
