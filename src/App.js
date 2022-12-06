@@ -48,6 +48,17 @@ function App() {
     console.log(room,socket);
   }
 
+  const back = () => {
+    setShowOptions(true);
+    setShowJoin(false);
+  }
+
+  /*React.useEffect(() => {
+    console.log(room);
+    setRoom(String(Math.floor(Math.random() * (9999 - 1000) ) + 1000));
+    console.log(room);
+  },[showOptions])*/
+
   //functions end
   
 
@@ -72,7 +83,7 @@ function App() {
   
   showCreate?
   
-  <Room socket={socket} room={room}/>
+  <Room socket={socket} room={room} setShowOptions={setShowOptions} setShowCreate={setShowCreate} setRoomJoined={setRoomJoined} setRoom={setRoom}/>
   :null
 }
 {
@@ -81,12 +92,13 @@ function App() {
   <label className='code-input-label'>Enter Room Code</label>
   <input className='code-input' onChange={(event)=>{setRoom(event.target.value)}}/>
   <button className='options-btn' onClick={joinRoom}>Join Room</button>
+  <p className='back' onClick={back}>Back</p>
   </>
   :null
 }
 {
   roomJoined?
-    <Room socket={socket} room={room}/>
+    <Room socket={socket} room={room} setShowOptions={setShowOptions} setShowCreate={setShowCreate} setRoomJoined={setRoomJoined} setRoom={setRoom}/>
     :null
 
 

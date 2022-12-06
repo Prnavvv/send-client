@@ -137,3 +137,12 @@ font-size: 20px;
 .code-input:focus{
   outline: none;
 }
+
+.back{
+  position: absolute;
+  top:90vh;
+  font-size: 30px;
+  color: #323232;
+  text-decoration: underline;
+  cursor: pointer;
+}
