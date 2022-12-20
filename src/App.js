@@ -102,7 +102,7 @@ function App() {
 }
 
       </div>{/*body div*/}
-      <p className='credits'>Developed by<a href='https://github.com/Prnavvv' target='_blank' > Pranav</a></p>
+      <p className='credits'>By<a href='https://github.com/Prnavvv' target='_blank' > Pranav</a></p>
     </div>
 
     
