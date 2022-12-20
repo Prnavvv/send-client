@@ -140,9 +140,16 @@ font-size: 20px;
 
 .back{
   position: absolute;
-  top:90vh;
+  top:85vh;
   font-size: 30px;
   color: #323232;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.credits{
+  position: absolute;
+  bottom: 5vh;
+  right: 5vw;
+
 }

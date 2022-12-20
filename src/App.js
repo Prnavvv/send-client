@@ -61,13 +61,10 @@ function App() {
 
   //functions end
   
-
-  
-
   return (
     <div>
       <div className="header">
-      <h1 className='heading'>SENDD</h1>
+      <h1 className='heading'>Cheat On Me</h1>
       </div>
       <div className='body'>
 
@@ -105,7 +102,10 @@ function App() {
 }
 
       </div>{/*body div*/}
+      <p className='credits'>Developed by<a href='https://github.com/Prnavvv' target='_blank' > Pranav</a></p>
     </div>
+
+    
   );
 }
 
